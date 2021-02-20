@@ -22,4 +22,5 @@ urlpatterns = [
     path('', accounts.views.index, name="index"), # 이부분(accounts/views.py) 수정할 것 ! 
     path('qna/', include('qna.urls')),
     path('accounts/', include('accounts.urls')),
+    path('bookmark/', include('bookmark.urls')),
 ]
