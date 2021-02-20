@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT_WEB</title>
+    <style>
+        body{text-align: center;}
+    </style>
+</head>
+<body>
+    <h1>Q&A 상세게시판</h1>
+    <div class="container">
+        <h3>{{post.title}}</h3>
+        <h5>{{post.writer}}</h5>
+        <h5>{{post.pub_date}}</h5>
+        <p>{{post.content}}</p>
+    </div>
+    <a href="{% url 'edit' post.id %}">수정하기</a>
+    <a href="{% url 'delete' post.id %}">삭제하기</a>
+
+
+    <!-- 댓글 목록 -->
+    <div class="card mb-2">
+        <h5 class="mt-0">댓글</h5>
+        <div class="card-body">
+            {% for comment in post.comments.all %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <small class="text-muted">작성일: {{comment.created_at}}</small>
+                            <p>{{comment.co_writer}}: {{comment.text}}</p>
+                            <!-- 댓글 수정, 삭제 버튼 -->
+                            <a href="{% url 'comment_update' comment.id %}">댓글 수정하기</a>
+                            <a href="{% url 'comment_delete' comment.id %}">댓글 삭제하기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- 댓글 목록 -->
+<!-- </div> -->
+
+<!-- 댓글 작성 링크 -->
+<div class='container'>
+    <a href="{% url 'comment_new' post.id %}">댓글 작성</a>
+</div>
+
+
+</body>
+</html>
