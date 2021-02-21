@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'qna',
     'accounts',
     'bookmark',
+    'vote',
 ]
 
 MIDDLEWARE = [
