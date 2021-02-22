@@ -12,7 +12,7 @@
 <body>
     <h1>Q&A 작성게시판</h1>
     <div>
-        <a href="{% url 'new' %}">글 작성하기</a>
+        <a href="{% url 'qna_new' %}">글 작성하기</a>
     </div>
     <div class="container">
         {% for post in posts %}
@@ -22,7 +22,7 @@
                 <h5>{{post.pub_date}}</h5>
                 <p>
                     {{post.summary}}
-                    <a href="{% url 'detail' post.id %}">더보기</a>
+                    <a href="{% url 'qna_detail' post.id %}">더보기</a>
                 </p>
             </div>
         {% endfor %}
