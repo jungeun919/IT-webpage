@@ -1,0 +1,20 @@
+<h1>Vote</h1>
+<p>투표할 질문을 선택해주세요.</p>
+
+<table>
+    <tr>
+        <th>질문번호</th>
+        <th>제목</th>
+        <th>생성일</th>
+    </tr>
+
+    {% for question in questions %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td><a href="{% url 'vote_detail' question.id %}">{{question.name}}</a></td>
+            <td>{{question.date}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'q_register' %}">질문 등록하기</a>

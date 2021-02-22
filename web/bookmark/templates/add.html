@@ -1,0 +1,10 @@
+<h1>BOOKMARK - URL 추가하기</h1>
+
+<form action="{% url 'book_create' %}" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <p>사이트 이름: <input type="text" name="site_name"></p>
+        <p>URL 주소: <input type="text" name="url"></p>
+        <button type="submit">저장하기</button>
+    </div>
+</form>

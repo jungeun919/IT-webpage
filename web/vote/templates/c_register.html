@@ -1,0 +1,13 @@
+<h1>답변 등록하기</h1>
+
+{% if error %}
+<p style="color: red">{{error}}</p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="등록하기">
+</form>

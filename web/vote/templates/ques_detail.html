@@ -1,0 +1,20 @@
+<h1>Vote 질문별 상세페이지</h1>
+
+<h2>{{ques.name}}</h2>
+<p>{{ques.date}}</p>
+
+<form action="{% url 'vote' %}" method="POST">
+    {% csrf_token %}
+    {% for choice in ques.choice_set.all %}
+    <input type="radio" name="choice" value="{{choice.id}}">
+    <label>{{choice.select}}</label>
+    <a href="{% url 'c_delete' choice.id %}">답변 삭제하기</a>
+    <br>
+    {% endfor %}
+    <input type="submit" value="투표하기">
+</form>
+
+<a href="{% url 'c_register' %}">답변 등록하기</a>
+<br>
+<a href="{% url 'q_delete' ques.id %}">삭제하기</a>
+<a href="{% url 'vote_list' %}">뒤로가기</a>
