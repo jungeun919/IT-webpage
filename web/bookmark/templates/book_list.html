@@ -1,0 +1,24 @@
+<div class="container">
+    <a href="{% url 'add' %}">Add Bookmark</a>
+
+    <table>
+        <thread>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Site</th>
+                <th scope="col">URL</th>
+                <th scope="col">삭제하기</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for bookmark in bookmarks %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="">{{bookmark.site_name}}</a></td>
+                <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></td>
+                <td><a href="{% url 'book_delete' bookmark.id %}">삭제하기</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,9 @@
+<h1>{{ques.name}} 투표결과</h1>
+
+<ul>
+    {% for choice in ques.choice_set.all %}
+        <li>{{choice.select}} - {{choice.votes}} 표</li>
+    {% endfor %}
+
+    <a href="{% url 'vote_list' %}">메인페이지로 돌아가기</a>
+</ul>
