@@ -1,0 +1,16 @@
+<h1>Vote 질문별 상세페이지</h1>
+
+<h2>{{ques.name}}</h2>
+<p>{{ques.date}}</p>
+
+<form method="POST" action="{% url 'vote' %}">
+    {% csrf_token %}
+    {% for choice in ques.choice_set.all %}
+    <input type="radio" name="choice" value="{{choice.id}}">
+    <label>{{choice.select}}</label>
+    <br>
+    {% endfor %}
+    <input type="submit" value="투표하기">
+</form>
+
+<a href="{% url 'vote_list' %}">뒤로가기</a>

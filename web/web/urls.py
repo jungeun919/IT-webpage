@@ -23,4 +23,5 @@ urlpatterns = [
     path('qna/', include('qna.urls')),
     path('accounts/', include('accounts.urls')),
     path('bookmark/', include('bookmark.urls')),
+    path('vote/', include('vote.urls')),
 ]
