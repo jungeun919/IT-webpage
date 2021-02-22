@@ -10,9 +10,11 @@
 
     {% for question in questions %}
         <tr>
-            <td>{{question.id}}</td>
+            <td>{{forloop.counter}}</td>
             <td><a href="{% url 'vote_detail' question.id %}">{{question.name}}</a></td>
             <td>{{question.date}}</td>
         </tr>
     {% endfor %}
 </table>
+
+<a href="{% url 'q_register' %}">질문 등록하기</a>
