@@ -8,6 +8,7 @@
 * bookmark (url 북마크)
 * vote (투표)
 * notice (공지사항)
+등등
 
 > 각자의 브랜치에서 작업 후 master로 pull request
 
