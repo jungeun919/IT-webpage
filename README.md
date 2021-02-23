@@ -15,3 +15,5 @@
 정은: git checkout jungeun
 
 지수언니: git checkout jisoo
+
+기능 더 추가해야징
