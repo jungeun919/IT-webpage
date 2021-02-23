@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
+from django.views.generic.edit import FormView
+from .forms import PostSearchForm
+from django.db.models import Q
 
 # Create your views here.
 def board(request):
@@ -40,3 +43,20 @@ def delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
     return redirect('board')
+
+class SearchFormView(FormView):
+    form_class = PostSearchForm
+    template_name = 'search.html'
+
+    def form_valid(self, form):
+        searchWord = form.cleaned_data['search_word']
+        posts = Post.objects.filter(Q(title__icontains=searchWord) | Q(description__icontains=searchWord) | Q(content__icontains=searchWord)).distinct()
+
+        context = {}
+        context['form'] = form
+        context['search_term'] = searchWord
+        context['object_list'] = posts
+
+        return render(self.request, self.template_name, context)
+
+
