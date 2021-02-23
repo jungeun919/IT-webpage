@@ -5,46 +5,46 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 
 # Create your views here.
-def board(request):
+def qna_board(request):
     posts = Post.objects.all()
     paginator = Paginator(posts, 10)
     page_number = request.GET.get("page")
     page_posts = paginator.get_page(page_number)
-    return render(request, 'post.html', {'posts':posts})
+    return render(request, 'qna_post.html', {'posts':posts})
 
-def detail(request, id):
+def qna_detail(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'detail.html', {'post':post})
+    return render(request, 'qna_detail.html', {'post':post})
 
-def new(request):
-    return render(request, 'new.html')
+def qna_new(request):
+    return render(request, 'qna_new.html')
 
-def create(request):
+def qna_create(request):
     new_post = Post()
     new_post.title = request.POST['title']
     new_post.writer = request.POST['writer']
     new_post.pub_date = timezone.now()
     new_post.content = request.POST['content']
     new_post.save()
-    return redirect('detail', new_post.id)
+    return redirect('qna_detail', new_post.id)
 
-def edit(request, id):
+def qna_edit(request, id):
     edit_post = Post.objects.get(id=id)
-    return render(request, 'edit.html', {'post':edit_post})
+    return render(request, 'qna_edit.html', {'post':edit_post})
 
-def update(request, id):
+def qna_update(request, id):
     update_post = Post.objects.get(id=id)
     update_post.title = request.POST['title']
     update_post.writer = request.POST['writer']
     update_post.pub_date = timezone.now()
     update_post.content = request.POST['content']
     update_post.save()
-    return redirect('detail', update_post.id)
+    return redirect('qna_detail', update_post.id)
 
-def delete(request, id):
+def qna_delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
-    return redirect('board')
+    return redirect('qna_board')
 
 def comment_new(request, post_id):
     post = get_object_or_404(Post, pk=post_id)

@@ -1,6 +1,6 @@
 <h1>Q&A 글 작성하기</h1>
 
-<form action="{% url 'create' %}" method="post">
+<form action="{% url 'qna_create' %}" method="post">
     {% csrf_token %}
     <div class="container">
         <p>제목: <input type="text" name="title"></p>

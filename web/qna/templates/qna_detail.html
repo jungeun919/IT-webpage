@@ -17,8 +17,8 @@
         <h5>{{post.pub_date}}</h5>
         <p>{{post.content}}</p>
     </div>
-    <a href="{% url 'edit' post.id %}">수정하기</a>
-    <a href="{% url 'delete' post.id %}">삭제하기</a>
+    <a href="{% url 'qna_edit' post.id %}">수정하기</a>
+    <a href="{% url 'qna_delete' post.id %}">삭제하기</a>
 
 
     <!-- 댓글 목록 -->
@@ -50,7 +50,7 @@
     <a href="{% url 'comment_new' post.id %}">댓글 작성</a>
 </div>
 
-<a href="{% url 'board' %}">메인페이지로 돌아가기</a>
+<a href="{% url 'qna_board' %}">메인페이지로 돌아가기</a>
 
 </body>
 </html>

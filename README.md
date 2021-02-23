@@ -1,7 +1,16 @@
-1. (지수언니)
-아이티 일정 캘린더 (관리자만)
-공지사항, 투표
+> 파일 구조
 
-2. (정은)
-질문 게시판
-댓글, 좋아요
+프로젝트 폴더명: web
+
+앱 폴더:
+* qna (질문게시판, 댓글 기능)
+* accounts (회원가입, 로그인/로그아웃)
+* bookmark (url 북마크)
+* vote (투표)
+* notice (공지사항)
+
+> 각자의 브랜치에서 작업 후 master로 pull request
+
+정은: git checkout jungeun
+
+지수언니: git checkout jisoo
