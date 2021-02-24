@@ -1,17 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
-from django.views.generic.edit import FormView
-from .forms import PostSearchForm
-from django.db.models import Q
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def board(request):
-    posts = Post.objects.all()
-    return render(request, 'post.html', {'posts':posts})
+    posts = Post.objects.all().order_by('-id')
+    paginator = Paginator(posts, 5)
+    page = request.GET.get('page')
+    boards = paginator.get_page(page)
+    return render(request, 'post.html', {'posts':posts, 'boards':boards})
 
 def detail(request, id):
     post = get_object_or_404(Post, pk=id)
+    post.hits += 1
+    post.save()
     return render(request, 'detail.html', {'post':post})
 
 def new(request):
@@ -43,20 +47,3 @@ def delete(request, id):
     delete_post = Post.objects.get(id=id)
     delete_post.delete()
     return redirect('board')
-
-class SearchFormView(FormView):
-    form_class = PostSearchForm
-    template_name = 'search.html'
-
-    def form_valid(self, form):
-        searchWord = form.cleaned_data['search_word']
-        posts = Post.objects.filter(Q(title__icontains=searchWord) | Q(description__icontains=searchWord) | Q(content__icontains=searchWord)).distinct()
-
-        context = {}
-        context['form'] = form
-        context['search_term'] = searchWord
-        context['object_list'] = posts
-
-        return render(self.request, self.template_name, context)
-
-
