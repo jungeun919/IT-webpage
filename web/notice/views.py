@@ -7,6 +7,9 @@ from django.core.paginator import Paginator
 # Create your views here.
 def board(request):
     posts = Post.objects.all().order_by('-id')
+    notice_fixed = Post.objects.filter(top_fixed=True).order_by('-pub_date')
+    print(notice_fixed)
+    # context['notice_fixed'] = notice_fixed
     paginator = Paginator(posts, 5)
     page = request.GET.get('page')
     boards = paginator.get_page(page)

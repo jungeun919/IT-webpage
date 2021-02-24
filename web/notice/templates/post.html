@@ -40,35 +40,5 @@
         <a href="?page={{boards.paginator.num_pages}}">Last</a>
         {%endif%}
     </div>
-    <!-- <table>
-        <thead>
-            <tr class="text-center">
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>등록일</th>
-                <th>조회수</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if post_list %}
-            {% for post in boards %}
-            <tr class="text-center">
-                <td>{{ post.id }}</td>
-                <td>{{ post.title|truncatechars:30 }}</td>
-                <td>{{ post.writer }}</td>
-                <td>{{ post.pub_date|date:'Y. m. d' }}</td>
-                <td>{{ post.hits }}</td>
-            </tr>
-            {% endfor %}
-            {% else %}
-            <tr class="text-center">
-                <td colspan="5">
-                    작성된 게시글이 없습니다.
-                </td>
-            </tr>
-            {% endif %}
-        </tbody>
-    </table> -->
 </body>
 </html>
