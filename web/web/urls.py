@@ -25,5 +25,4 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls')),
     path('vote/', include('vote.urls')),
     path('notice/', include('notice.urls')),
-    path('users/', include('users.urls')),
 ]
