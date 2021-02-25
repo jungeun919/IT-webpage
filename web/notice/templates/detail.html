@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT_WEB</title>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<style>
+    body{text-align: center;}
+</style>
 </head>
+
 <body>
     <h1>공지사항 상세</h1>
+    <hr/>
+
     <div class="container">
         <h3>{{post.title}}</h3>
         <h5>{{post.writer}}</h5>
@@ -16,7 +28,8 @@
         <p>{{post.content}}</p>
     </div>
     <a href="{% url 'edit' post.id %}">수정하기</a>
-    <a href="{% url 'delete' post.id %}">삭제하기</a>
+    <a href="{% url 'delete' post.id %}">삭제하기</a><br>
+    
     <a href="{% url 'board' %}">돌아가기</a>
 </body>
 </html>
