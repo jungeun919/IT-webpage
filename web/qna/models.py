@@ -3,8 +3,8 @@ from django.contrib.auth import settings
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=50)
-    writer = models.CharField(max_length=20)
+    title = models.CharField(max_length=100)
+    writer = models.CharField(max_length=50)
     pub_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
 

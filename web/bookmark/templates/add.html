@@ -1,10 +1,37 @@
-<h1>BOOKMARK - URL 추가하기</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT_WEB</title>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<style>
+    body{text-align: center;}
+</style>
+</head>
+
+<body>
+<h2>BOOKMARK - URL 추가하기</h2>
+<hr/>
 
 <form action="{% url 'book_create' %}" method="post">
     {% csrf_token %}
     <div class="container">
-        <p>사이트 이름: <input type="text" name="site_name"></p>
-        <p>URL 주소: <input type="text" name="url"></p>
-        <button type="submit">저장하기</button>
+        <p>사이트 이름</p>
+        <input type="text" name="site_name"><br><br>
+        <p>URL 주소</p>
+        <input type="text" name="url"><br><br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">저장하기</button>
+        </div>
     </div>
 </form>
+
+</body>
+</html>
