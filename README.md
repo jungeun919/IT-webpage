@@ -8,12 +8,14 @@
 * bookmark (url 북마크)
 * vote (투표)
 * notice (공지사항)
-등등
+
 
 > 각자의 브랜치에서 작업 후 master로 pull request
 
-정은: git checkout jungeun
+최정은: git checkout jungeun
 
-지수언니: git checkout jisoo
+이지수: git checkout jisoo
 
-기능 더 추가해야징
+<앞으로 추가할 기능>
+
+* 얼굴 인식으로 소셜 로그인 
